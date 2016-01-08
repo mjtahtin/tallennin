@@ -467,12 +467,14 @@ var lajilista_LEP;
 myLatitude = 0; myLongitude=0;
 	function getLocation() {
  		   if (navigator.geolocation) {
+ 		   alert("Geolocate supported");
         	navigator.geolocation.getCurrentPosition(showPosition);
         	x.innerHTML = "Geolocation ok.";
         	x.innerHTML = "Latitude: " + position.coords.latitude +
    			 " Longitude: " + position.coords.longitude; 
         	
     		} else {
+    		alert("Geolocate not supported");
        		 x.innerHTML = "Geolocation is not supported by this browser.";
     		}
 		}

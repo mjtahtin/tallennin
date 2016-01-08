@@ -7,7 +7,10 @@
 <script src="scripts/jquery-2.0.3.js"></script>
 <script src="scripts/jquery-ui.js"></script>
 <script src="scripts/jquery-tmpl.js"></script>
-
+<script src="scripts/muunto.js"></script>
+<script src="scripts/kuntarajat.js"></script>
+<script src="scripts/maakunnat.js"></script>
+<script src="scripts/OpenLayers.js"></script>
 <script src="scripts/lajit.js"></script>
 
 <style class="firebugResetStyles" type="text/css" charset="iso-8859-1">/* See license.txt for terms of usage */
@@ -467,14 +470,8 @@ var lajilista_LEP;
 myLatitude = 0; myLongitude=0;
 	function getLocation() {
  		   if (navigator.geolocation) {
- 		   alert("Geolocate supported");
         	navigator.geolocation.getCurrentPosition(showPosition);
-        	x.innerHTML = "Geolocation ok.";
-        	x.innerHTML = "Latitude: " + position.coords.latitude +
-   			 " Longitude: " + position.coords.longitude; 
-        	
     		} else {
-    		alert("Geolocate not supported");
        		 x.innerHTML = "Geolocation is not supported by this browser.";
     		}
 		}
@@ -605,13 +602,12 @@ for( var i = 0; i< vectors.length; i++ ){
         // Display error info
         //   
         console.log( xhr.status, xhr.statusText, xhr.responseText );
-         x.innerHTML = "Failed: " + xhr.statusText + xhr.responseText;
     });
     
     //Hae lajilista
 
     
- /*   $.ajax({ 
+    $.ajax({ 
     url: 'http://hyonteiset.luomus.fi/insects/rest/catalogs/Lepidoptera',
     dataType: 'json' })
     .done( function( data, textStatus, xhr ) 
@@ -630,7 +626,7 @@ for( var i = 0; i< vectors.length; i++ ){
     .fail( function( xhr, textStatus, errorThrown ) 
     {
         console.log( xhr.status, xhr.statusText, xhr.responseText );
-    }); */
+    });
 	 	
 		});
 		

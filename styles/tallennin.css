@@ -12,7 +12,7 @@ font-size: 20px;
 
 
 header {
-	width:100%;
+	width:30%;
 	height:35px;
 	background:#d1e0e1;
 	color: #333;
@@ -23,7 +23,7 @@ header {
 }
 
 footer {
-   width:100%;
+   width:30%;
    height:30px; 
    background:#d1e0e1;
    font-size: 12px;
@@ -42,7 +42,7 @@ section {
 }
 
 table {
-	width:90%;
+	width:30%;
 	border-collapse:collapse;
 	display:none;
 }

@@ -471,6 +471,10 @@ myLatitude = 0; myLongitude=0;
 	function getLocation() {
  		   if (navigator.geolocation) {
         	navigator.geolocation.getCurrentPosition(showPosition);
+        	x.innerHTML = "Geolocation ok.";
+        	x.innerHTML = "Latitude: " + position.coords.latitude +
+   			 " Longitude: " + position.coords.longitude; 
+        	
     		} else {
        		 x.innerHTML = "Geolocation is not supported by this browser.";
     		}
@@ -602,12 +606,13 @@ for( var i = 0; i< vectors.length; i++ ){
         // Display error info
         //   
         console.log( xhr.status, xhr.statusText, xhr.responseText );
+         x.innerHTML = "Failed: " + xhr.statusText + xhr.responseText;
     });
     
     //Hae lajilista
 
     
-    $.ajax({ 
+ /*   $.ajax({ 
     url: 'http://hyonteiset.luomus.fi/insects/rest/catalogs/Lepidoptera',
     dataType: 'json' })
     .done( function( data, textStatus, xhr ) 
@@ -626,7 +631,7 @@ for( var i = 0; i< vectors.length; i++ ){
     .fail( function( xhr, textStatus, errorThrown ) 
     {
         console.log( xhr.status, xhr.statusText, xhr.responseText );
-    });
+    }); */
 	 	
 		});
 		

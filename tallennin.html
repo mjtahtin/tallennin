@@ -472,7 +472,14 @@ myLatitude = 0; myLongitude=0;
 	         x.innerHTML ="GetLocationf";
  		   if (navigator.geolocation) {
  		   x.innerHTML = "Geolocation is supported by browser.";
+ 		   try{
         	navigator.geolocation.getCurrentPosition(showPosition);
+        	}
+        	catch(e)
+        	{
+        	  console.log(e.code+':'+e.message);
+               x.innerHTML = e.code+':'+e.message";
+        	}
         	//x.innerHTML = "Geolocation ok: " + position.coords.latitude;
     		} else {
        		 x.innerHTML = "Geolocation is not supported by this browser.";

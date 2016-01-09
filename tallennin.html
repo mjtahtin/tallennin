@@ -471,6 +471,7 @@ myLatitude = 0; myLongitude=0;
 	function getLocation() {
 	         x.innerHTML ="GetLocationf";
  		   if (navigator.geolocation) {
+ 		   x.innerHTML = "Geolocation is supported by browser.";
         	navigator.geolocation.getCurrentPosition(showPosition);
         	//x.innerHTML = "Geolocation ok: " + position.coords.latitude;
     		} else {

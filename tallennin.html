@@ -471,6 +471,7 @@ myLatitude = 0; myLongitude=0;
 	function getLocation() {
  		   if (navigator.geolocation) {
         	navigator.geolocation.getCurrentPosition(showPosition);
+        	x.innerHTML = "Geolocation ok: " + position.coords.latitude;
     		} else {
        		 x.innerHTML = "Geolocation is not supported by this browser.";
     		}
@@ -479,6 +480,7 @@ myLatitude = 0; myLongitude=0;
 		 function showPosition(position) {
 
           degrees_to_grid(position.coords.latitude, position.coords.longitude);
+          x.innerHTML = uusiX;
           // degrees_to_grid(60.18,24.62);
           $('#xkoord').val(uusiX);
           $('#ykoord').val(uusiY);
@@ -497,15 +499,18 @@ try{
 	if (vectorit != null)
 	{
 	  console.log('Ok');
+	  x.innerHTML = "Maakunta ok1";
 	  }
 	  else {
 	  console.log(' not Ok');
+	  x.innerHTML = "Maakunta not ok1";
 	  }
 	  
 }
 catch(e)
 {
    console.log(e.code+':'+e.message);
+   x.innerHTML = "Maakunta failed";
 }
 
 for( var i = 0; i< vectorit.length; i++ ){

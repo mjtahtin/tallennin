@@ -472,7 +472,7 @@ myLatitude = 0; myLongitude=0;
 function showPosition_old(position) {
     x.innerHTML = "Latitude: " + position.coords.latitude +
     "Longitude: " + position.coords.longitude;
-};
+}
 
 	function getLocation() {
 	         x.innerHTML ="GetLocationf";
@@ -484,7 +484,7 @@ function showPosition_old(position) {
     		} else {
        		 x.innerHTML = "Geolocation is not supported by this browser.";
     		}
-		};
+		}
 
 
 
@@ -564,6 +564,7 @@ for( var i = 0; i< vectors.length; i++ ){
 		$('#getGPS').click(function(evt)  {
 	 	console.log("GetGPS");
 	 	x.innerHTML = "GetGPS";
+	 	navigator.geolocation.getCurrentPosition(showPosition_old);
 		
 		getLocation();
 

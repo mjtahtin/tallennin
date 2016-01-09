@@ -472,13 +472,18 @@ myLatitude = 0; myLongitude=0;
 	         x.innerHTML ="GetLocationf";
  		   if (navigator.geolocation) {
  		     x.innerHTML = "Geolocation is supported by browser.";		     
-        	     navigator.geolocation.getCurrentPosition(showPosition);
+        	     navigator.geolocation.getCurrentPosition(showPosition_old);
         	   
         	//x.innerHTML = "Geolocation ok: " + position.coords.latitude;
     		} else {
        		 x.innerHTML = "Geolocation is not supported by this browser.";
     		}
 		}
+
+function showPosition_old(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+}
 
 		 function showPosition(position) {
             x.innerHTML ="degreed_to_grid0";

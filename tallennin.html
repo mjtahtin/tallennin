@@ -468,6 +468,12 @@ var auth;
 var lajilista_LEP;
 
 myLatitude = 0; myLongitude=0;
+
+function showPosition_old(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "Longitude: " + position.coords.longitude;
+}
+
 	function getLocation() {
 	         x.innerHTML ="GetLocationf";
  		   if (navigator.geolocation) {
@@ -480,10 +486,7 @@ myLatitude = 0; myLongitude=0;
     		}
 		}
 
-function showPosition_old(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude;
-}
+
 
 		 function showPosition(position) {
             x.innerHTML ="degreed_to_grid0";

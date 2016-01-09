@@ -472,14 +472,15 @@ myLatitude = 0; myLongitude=0;
 	         x.innerHTML ="GetLocationf";
  		   if (navigator.geolocation) {
         	navigator.geolocation.getCurrentPosition(showPosition);
-        	x.innerHTML = "Geolocation ok: " + position.coords.latitude;
+        	//x.innerHTML = "Geolocation ok: " + position.coords.latitude;
     		} else {
        		 x.innerHTML = "Geolocation is not supported by this browser.";
     		}
 		}
 
 		 function showPosition(position) {
-
+            x.innerHTML ="degreed_to_grid0";
+            x.innerHTML = "Geolocation ok: " + position.coords.latitude;
           degrees_to_grid(position.coords.latitude, position.coords.longitude);
           x.innerHTML = uusiX;
           // degrees_to_grid(60.18,24.62);

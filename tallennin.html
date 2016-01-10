@@ -7,7 +7,10 @@
 <script src="scripts/jquery-2.0.3.js"></script>
 <script src="scripts/jquery-ui.js"></script>
 <script src="scripts/jquery-tmpl.js"></script>
-
+<script src="scripts/muunto.js"></script>
+<script src="scripts/kuntarajat.js"></script>
+<script src="scripts/maakunnat.js"></script>
+<script src="scripts/OpenLayers.js"></script>
 <script src="scripts/lajit.js"></script>
 
 <style class="firebugResetStyles" type="text/css" charset="iso-8859-1">/* See license.txt for terms of usage */
@@ -465,31 +468,37 @@ var auth;
 var lajilista_LEP;
 
 myLatitude = 0; myLongitude=0;
-
-function showPosition_old(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-    "Longitude: " + position.coords.longitude;
-};
-
 	function getLocation() {
-	         x.innerHTML ="GetLocationf";
  		   if (navigator.geolocation) {
- 		     //x.innerHTML = "Geolocation is supported by browser.";		     
-        	     navigator.geolocation.getCurrentPosition(showPosition_old);
-        	   
-        	//x.innerHTML = "Geolocation ok: " + position.coords.latitude;
+        	navigator.geolocation.getCurrentPosition(showPosition, showError, {
+         enableHighAccuracy: true
+              ,timeout : 15000
+    });
     		} else {
        		 x.innerHTML = "Geolocation is not supported by this browser.";
     		}
-		};
+		}
 
-
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
 
 		 function showPosition(position) {
-            x.innerHTML ="degreed_to_grid0";
-            x.innerHTML = "Geolocation ok: " + position.coords.latitude;
+
           degrees_to_grid(position.coords.latitude, position.coords.longitude);
-          x.innerHTML = uusiX;
           // degrees_to_grid(60.18,24.62);
           $('#xkoord').val(uusiX);
           $('#ykoord').val(uusiY);
@@ -508,18 +517,15 @@ try{
 	if (vectorit != null)
 	{
 	  console.log('Ok');
-	  x.innerHTML = "Maakunta ok1";
 	  }
 	  else {
 	  console.log(' not Ok');
-	  x.innerHTML = "Maakunta not ok1";
 	  }
 	  
 }
 catch(e)
 {
    console.log(e.code+':'+e.message);
-   x.innerHTML = "Maakunta failed";
 }
 
 for( var i = 0; i< vectorit.length; i++ ){
@@ -560,8 +566,6 @@ for( var i = 0; i< vectors.length; i++ ){
 
 		$('#getGPS').click(function(evt)  {
 	 	console.log("GetGPS");
-	 	x.innerHTML = "GetGPS";
-	 	//navigator.geolocation.getCurrentPosition(showPosition_old);
 		
 		getLocation();
 

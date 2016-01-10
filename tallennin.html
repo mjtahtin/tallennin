@@ -773,6 +773,7 @@ for( var i = 0; i< vectors.length; i++ ){
     {     
         console.log( data );
         x.innerHTML = "Obs id: " + data.obsID;
+        $('#autocomplete').val("");
     })
     .fail(function( xhr ) 
     {  

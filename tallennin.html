@@ -401,6 +401,10 @@ style.firebugResetStyles {
 				<nav>	
 					<a href="#" id="getGPS" >Hae GPS-koord</a> 
 					<a href="#" id="getLocations" >Hae keruupaikat</a>
+					<a href="#" id="getDefaults" >Hae oletusarvot</a>
+				</nav>
+				<nav>
+					<a href="#" id="saveDefaults" >Talleta oletusarvot</a>
 					<a href="#" id="settings" >Asetukset</a>
 				</nav>
 				
@@ -649,6 +653,12 @@ for( var i = 0; i< vectors.length; i++ ){
     });
 	 	
 		});
+		
+	$('#getDefaults').click(function(evt)  {
+	 	console.log("getDefaults");
+	 	
+	 	getNewObsDefaults();
+	 	}
 		
 	$('#saveObs').click(function(evt)  {
 	 	console.log("saveObs");

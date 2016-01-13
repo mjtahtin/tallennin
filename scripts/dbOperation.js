@@ -3,12 +3,12 @@
 //
 //------------------------------------------------------------------------------------------------
 											   
-function getNewObsDefaults()
+function getNewObsDefaults(username, password)
 {	
     var host =  "http://hyonteiset.luomus.fi/insects";
     
-    var _userName = $('username').val();
-    var _passWord = $('password').val();
+    //var _userName = $('username').val();
+    //var _passWord = $('password').val();
     
 	var queryString = host + "/json?op=getDefaults&username=" + _userName + "&password=" + _passWord + "&callback=?";	
 	console.log(queryString);

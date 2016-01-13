@@ -10,7 +10,7 @@ function getNewObsDefaults(username, password)
     //var _userName = $('username').val();
     //var _passWord = $('password').val();
     
-	var queryString = host + "/json?op=getDefaults&username=" + userName + "&password=" + passWord + "&callback=?";	
+	var queryString = host + "/json?op=getDefaults&username=" + username + "&password=" + password + "&callback=?";	
 	console.log(queryString);
 	
 	$.getJSON( queryString, function(data) 

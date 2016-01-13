@@ -76,11 +76,11 @@ function getNewObsDefaults()
 											   
 function saveDefaults()
 {
-/*	var values = saveObsForm.getForm().getValues();
+//	var values = saveObsForm.getForm().getValues();
 
 	var queryString = host + "/json?op=saveDefaults"
 	
-	
+	/*
 	
 	                + "&username=" + username + "&password=" + password
 	                + "&startDay="    + values.startDay_new
@@ -117,4 +117,5 @@ function saveDefaults()
 		    Ext.MessageBox.alert( ui.save_defaults, data[0].error );
 		}
 	});
-} */
+	*/
+} 

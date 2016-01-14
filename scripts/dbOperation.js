@@ -45,6 +45,7 @@ function getNewObsDefaults(username, password)
 	 	$('#county').val(data[0].county);	 	
 	 	$('#locality').val(data[0].locality);
 	 		
+	 		console.log(data[0].coordinates);
 	 	var koordinaatit = data[0].coordinates.split(":");
 	 	var new_coordY = koordinaatit[0];
 	 	var new_coordX = koordinaatit[1]; 	
@@ -74,11 +75,9 @@ function getNewObsDefaults(username, password)
 function saveDefaults(username, password)
 {
 //	var values = saveObsForm.getForm().getValues();
-
+    var coordinates = $('#ykoord').val() + ':' + $('#xkoord').val();
+    
 	var queryString = host + "/json?op=saveDefaults"
-	var coordinates = $('#ykoord').val() + ':' + $('#xkoord').val();
-	
-	
 	                + "&username=" + username + "&password=" + password
 	                + "&startDay="    + $('#startDay').val()
 					+ "&startMonth="  + $('startMonth').val()

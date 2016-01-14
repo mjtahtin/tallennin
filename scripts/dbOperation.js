@@ -1,3 +1,5 @@
+var host =  "http://hyonteiset.luomus.fi/insects";
+
 //------------------------------------------------------------------------------------------------
 // getNewObsDefaults()
 //
@@ -5,11 +7,6 @@
 											   
 function getNewObsDefaults(username, password)
 {	
-    var host =  "http://hyonteiset.luomus.fi/insects";
-    
-    //var _userName = $('#username').val();
-    //var _passWord = $('#password').val();
-    
 	var queryString = host + "/json?op=getDefaults&username=" + username + "&password=" + password + "&callback=?";	
 	console.log(queryString);
 	
@@ -74,35 +71,35 @@ function getNewObsDefaults(username, password)
 // saveDefaults()
 //------------------------------------------------------------------------------------------------
 											   
-function saveDefaults()
+function saveDefaults(username, password)
 {
 //	var values = saveObsForm.getForm().getValues();
 
 	var queryString = host + "/json?op=saveDefaults"
+	var coordinates = $('#ykoord').val() + ':' + $('#xkoord').val();
 	
-	/*
 	
 	                + "&username=" + username + "&password=" + password
-	                + "&startDay="    + values.startDay_new
-					+ "&startMonth="  + values.startMonth_new
-					+ "&endDay="      + values.endDay_new
-					+ "&endMonth="    + values.endMonth_new
-					+ "&year="        + values.year_new
-					+ "&region="      + values.comboRegion_new
-					+ "&county="      + values.county_new
-					+ "&locality="    + values.locality_new
-					+ "&coordinates=" + values.coords_new
-					+ "&habitat="     + values.habitat_new
-					+ "&method="      + values.method_new
-					+ "&totalCount="  + values.t_count_new
-					+ "&devStage="    + values.devStage_new
-					+ "&observer="    + values.observer_new
-					+ "&det="         + values.det_new
-					+ "&detYear="     + values.detYear_new
-					+ "&detMethod="   + values.comboDetMethod_new
+	                + "&startDay="    + $('#startDay').val()
+					+ "&startMonth="  + $('startMonth').val()
+					+ "&endDay="      + $('#endDay').val()
+					+ "&endMonth="    + $('#endMonth').val()
+					+ "&year="        + $('#year').val()
+					+ "&region="      + $('#region').val()
+					+ "&county="      + $('#county').val()
+					+ "&locality="    + $('#locality').val()
+					+ "&coordinates=" + coordinates
+					+ "&habitat="     + $('#habitat').val()
+					+ "&method="      + $('#method').val()
+					+ "&totalCount="  + $('#tCount').val()
+					+ "&devStage="    + $('#devStage').val()
+					+ "&observer="    + $('#observer').val()
+					+ "&det="         + $('#det').val()
+					+ "&detYear="     + $('#detYear').val()
+					+ "&detMethod="   + $('#method').val()
 					+ "&callback=?";
 	
-	// console.log( queryString );
+	 console.log( queryString );
 	
 	// --- Server returns { "success": "OK" } or { "error": "<message>" }
     //	
@@ -110,12 +107,15 @@ function saveDefaults()
 	{	
         if ( data[0].success != null )
         {
-			Ext.MessageBox.alert( ui.save_defaults, 'Ok. ' + ui.defaults_saved + '.' );
+			//Ext.MessageBox.alert( ui.save_defaults, 'Ok. ' + ui.defaults_saved + '.' );
+			console.log( "defaults saved" );
+			x.innerHTML = "Asetusten tallennus onnistui";
 		}
 		else
 		{		
-		    Ext.MessageBox.alert( ui.save_defaults, data[0].error );
+		    //Ext.MessageBox.alert( ui.save_defaults, data[0].error );
+		    x.innerHTML = "Asetusten tallennus epäonnistui: " + data[0].error;
 		}
 	});
-	*/
+	
 } 

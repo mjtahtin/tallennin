@@ -663,6 +663,15 @@ for( var i = 0; i< vectors.length; i++ ){
     console.log(userName);
 	 	getNewObsDefaults(userName, passWord);
 	 	});
+	 	
+	$('#saveDefaults').click(function(evt)  {
+	 	console.log("saveDefaults");
+	 	
+	 	var userName = $('#username').val();
+        var passWord = $('#password').val();
+    console.log(userName);
+	 	saveDefaults(userName, passWord);
+	 	});
 		
 	$('#saveObs').click(function(evt)  {
 	 	console.log("saveObs");

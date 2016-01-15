@@ -76,6 +76,7 @@ function saveDefaults(username, password)
 {
 //	var values = saveObsForm.getForm().getValues();
     var coordinates = $('#ykoord').val() + ':' + $('#xkoord').val();
+    var observer = $('#observer').val();
     
 	var queryString = host + "/json?op=saveDefaults"
 	                + "&username=" + username + "&password=" + password
@@ -100,9 +101,66 @@ function saveDefaults(username, password)
 	
 	 console.log( queryString );
 	
+	var year = $('#year').val();
+	 	var startMonth = $('#startMonth').val();
+	 	var startDay = $('#startDay').val();
+	 	var endDay = $('#endDay').val();
+	 	var endMonth = $('#endMonth').val();
+	 	var observer = $('#observer').val();
+	 	var region = $("#region option:selected").text();
+	 	var county = $('#county').val();
+	 	var locality = $('#locality').val();
+	 	var coordinates = $('#ykoord').val() + ':' + $('#xkoord').val();
+	 	var totalCount = $('#tCount').val();
+	 	var maleCount =  $('#mCount').val();
+	 	var femaleCount =  $('#fCount').val();
+	 	var devStage = $('#devStage').val();
+	 	var det = $('#det').val();
+	 	var detYear = $('#detYear').val();
+	 	var detMethod = $('#detMethod').val();
+	 	var method = $('#method').val();
+	 	var habitat = $('#habitat').val();
+	 	var username = $('#username').val();
+	 	var password = $('#password').val();
+	
+	$.ajax({   
+    url: 'http://hyonteiset.luomus.fi/insects/json?op=saveDefaults&callback=?',  
+    data: { username,
+    password,
+            year,
+            startMonth,
+            startDay,
+            endDay,
+            endMonth,
+            region,
+            county,
+            locality,            
+            coordinates,             
+            totalCount,
+            observer,
+            devStage,
+            det,
+            detMethod,
+            method,
+            habitat },    
+    //type: 'POST',
+    contentType: 'application/x-www-form-urlencoded',
+    dataType: 'json' })
+    .done(function( data, textStatus, xhr ) 
+    {     
+        console.log( data );
+        //x.innerHTML = "Obs id: " + data.obsID;
+    })
+    .fail(function( xhr ) 
+    {  
+        console.log( xhr.status, xhr.statusText, xhr.responseText );
+        x.innerHTML = "Tallennus ep‰onnistui: " + xhr.responseText;
+    });  
+	//contentType (default: 'application/x-www-form-urlencoded; charset=UTF-8')
+	
 	// --- Server returns { "success": "OK" } or { "error": "<message>" }
     //	
-	$.getJSON( queryString, function(data) 
+	/*$.getJSON( queryString, function(data) 
 	{	
         if ( data[0].success != null )
         {
@@ -115,6 +173,6 @@ function saveDefaults(username, password)
 		    //Ext.MessageBox.alert( ui.save_defaults, data[0].error );
 		    x.innerHTML = "Asetusten tallennus ep√§onnistui: " + data[0].error;
 		}
-	});
+	}); */
 	
 } 

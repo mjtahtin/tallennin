@@ -120,8 +120,8 @@ function saveDefaults(username, password)
 	 	var detMethod = $('#detMethod').val();
 	 	var method = $('#method').val();
 	 	var habitat = $('#habitat').val();
-	 	var username = $('#username').val();
-	 	var password = $('#password').val();
+	// 	var username = $('#username').val();
+	// 	var password = $('#password').val();
 	
 	$.ajax({   
     url: 'http://hyonteiset.luomus.fi/insects/json?op=saveDefaults&callback=?',  

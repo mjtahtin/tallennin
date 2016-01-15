@@ -144,7 +144,7 @@ function saveDefaults(username, password)
             method,
             habitat },    
     //type: 'POST',
-    contentType: 'application/x-www-form-urlencoded',
+   contentType: 'application/x-www-form-urlencoded; charset=iso-8859-1'),
     dataType: 'json' })
     .done(function( data, textStatus, xhr ) 
     {     

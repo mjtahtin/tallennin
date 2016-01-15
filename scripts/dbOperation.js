@@ -49,8 +49,8 @@ function getNewObsDefaults(username, password)
 	 	var koordinaatit = data[0].coordinates.split(":");
 	 	var new_coordY = koordinaatit[0];
 	 	var new_coordX = koordinaatit[1]; 	
-	 	$('#yCoord').val(new_coordY);
-	 	$('#xCoord').val(new_coordX);
+	 	$('#ykoord').val(new_coordY);
+	 	$('#xkoord').val(new_coordX);
 	 	
 	 	$('#tCount').val(data[0].totalCount);
 	 	$('#devStage').val(data[0].devStage).change();

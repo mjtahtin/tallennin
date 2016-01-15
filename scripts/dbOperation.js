@@ -80,7 +80,7 @@ function saveDefaults(username, password)
 	var queryString = host + "/json?op=saveDefaults"
 	                + "&username=" + username + "&password=" + password
 	                + "&startDay="    + $('#startDay').val()
-					+ "&startMonth="  + $('startMonth').val()
+					+ "&startMonth="  + $('#startMonth').val()
 					+ "&endDay="      + $('#endDay').val()
 					+ "&endMonth="    + $('#endMonth').val()
 					+ "&year="        + $('#year').val()
@@ -113,7 +113,7 @@ function saveDefaults(username, password)
 		else
 		{		
 		    //Ext.MessageBox.alert( ui.save_defaults, data[0].error );
-		    x.innerHTML = "Asetusten tallennus ep‰onnistui: " + data[0].error;
+		    x.innerHTML = "Asetusten tallennus ep√§onnistui: " + data[0].error;
 		}
 	});
 	

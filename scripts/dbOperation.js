@@ -99,7 +99,7 @@ function saveDefaults(username, password)
 					+ "&detMethod="   + $('#method').val()
 					+ "&callback=?";
 	
-	queryString = encodeURIComponent();
+	//queryString = encodeURIComponent();
 	 console.log( queryString );
 	
 	var year = $('#year').val();
@@ -126,7 +126,7 @@ function saveDefaults(username, password)
 	
 	  observer = decodeURIComponent(observer);
 	
-/*	$.ajax({   
+	$.ajax({   
     url: 'http://hyonteiset.luomus.fi/insects/json?op=saveDefaults&callback=?',  
     data: { username,
     password,
@@ -160,12 +160,12 @@ function saveDefaults(username, password)
     {  
         console.log( xhr.status, xhr.statusText, xhr.responseText );
         x.innerHTML = "Tallennus ep‰onnistui: " + xhr.responseText;
-    });  */
+    });  
 	//contentType (default: 'application/x-www-form-urlencoded; charset=UTF-8')
 	
 	// --- Server returns { "success": "OK" } or { "error": "<message>" }
     //	
-	$.getJSON( queryString, function(data) 
+	/*$.getJSON( queryString, function(data) 
 	{	
         if ( data[0].success != null )
         {
@@ -178,6 +178,6 @@ function saveDefaults(username, password)
 		    //Ext.MessageBox.alert( ui.save_defaults, data[0].error );
 		    x.innerHTML = "Asetusten tallennus ep√§onnistui: " + data[0].error;
 		}
-	}); 
+	}); */
 	
 } 

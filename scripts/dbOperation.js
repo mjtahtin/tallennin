@@ -123,7 +123,7 @@ function saveDefaults(username, password)
 	// 	var username = $('#username').val();
 	// 	var password = $('#password').val();
 	
-	  observer = escapeencodeURIComponent(observer);
+	  observer = encodeURIComponent(observer);
 	
 	$.ajax({   
     url: 'http://hyonteiset.luomus.fi/insects/json?op=saveDefaults&callback=?',  

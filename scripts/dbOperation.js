@@ -123,6 +123,8 @@ function saveDefaults(username, password)
 	// 	var username = $('#username').val();
 	// 	var password = $('#password').val();
 	
+	  observer = escape(observer);
+	
 	$.ajax({   
     url: 'http://hyonteiset.luomus.fi/insects/json?op=saveDefaults&callback=?',  
     data: { username,
@@ -144,7 +146,7 @@ function saveDefaults(username, password)
             method,
             habitat },    
     //type: 'POST',
-   contentType: 'application/x-www-form-urlencoded; charset=iso-8859-1',
+   contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
     dataType: 'json' })
     .done(function( data, textStatus, xhr ) 
     {     
